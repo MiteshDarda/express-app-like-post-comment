@@ -7,10 +7,10 @@ const index_1 = __importDefault(require("./index"));
 const test = async () => {
     try {
         await index_1.default.authenticate();
-        console.log('Connection has been established successfully.');
+        console.log('✅ Connection has been established successfully.');
     }
     catch (error) {
-        console.error('Unable to connect to the database:', error);
+        console.error('❌ Unable to connect to the database:', error);
     }
 };
 exports.default = test;

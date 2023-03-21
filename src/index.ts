@@ -1,5 +1,1 @@
-import sequelize from "./sequelize/index";
-import test from "./sequelize/test";
-
-sequelize;
-test();
+import "./express/index" // starting the express server
