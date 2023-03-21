@@ -1,4 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-console.log("yes");
+const index_1 = __importDefault(require("./sequelize/index"));
+const test_1 = __importDefault(require("./sequelize/test"));
+index_1.default;
+(0, test_1.default)();
 //# sourceMappingURL=index.js.map
