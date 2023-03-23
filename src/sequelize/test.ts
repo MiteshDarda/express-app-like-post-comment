@@ -1,3 +1,5 @@
+// OLD FILES // DEPRECATED WAY OF DOING // NEW WAY WITH MIGRATIONS
+
 import sequelize from './index'
 
 const test = async() => {   
