@@ -4,13 +4,18 @@
 import db from "../../sequelize/models/index";
 import associate from './associate';
 import drop from "./drop";
+const User = db.User;
+const Likes = db.Likes;
+const Post =  db.Post;
+const Comment = db.Comment;
+const sequelize = db.sequelize;
 
 const test = async() => {   
     try {
         // await sequelize.authenticate();
-        await associate(db.User, db.Likes, db.Post, db.Comment);
+        await associate(User, Likes, Post, Comment);
         await db.sequelize.sync();
-        // await drop(db.User, db.Likes, db.Post, db.Comment);
+        // await drop(User, Likes, Post, Comment);
         console.log('✅ Connection has been established successfully.');
         
     } catch (error) {
@@ -20,4 +25,4 @@ const test = async() => {
     return true;
 }
 
-export default test;
+export  {test, User, Likes, Post, Comment, sequelize};

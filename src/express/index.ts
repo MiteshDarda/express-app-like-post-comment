@@ -1,5 +1,5 @@
 import express  from "express"; 
-import test from "../sequelize/test"
+import {test} from "../sequelize/test"
 
 // Importing All Routes
 import userRoutes from "../routes/users"

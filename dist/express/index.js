@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const test_1 = __importDefault(require("../sequelize/test"));
+const test_1 = require("../sequelize/test");
 // Importing All Routes
 const users_1 = __importDefault(require("../routes/users"));
 const comment_1 = __importDefault(require("../routes/comment"));
@@ -14,7 +14,7 @@ const app = (0, express_1.default)();
 const PORT = 8080;
 app.use(express_1.default.json()); // middleware to Pars data and get Body
 async function init() {
-    if (await (0, test_1.default)()) {
+    if (await (0, test_1.test)()) {
         console.log(`Starting Sequelize + Express example on port ${PORT}...`);
         app.listen(PORT, () => {
             console.log();
