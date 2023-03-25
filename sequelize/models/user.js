@@ -9,8 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    // console.log("CONSOLE",Likes, Post, User);
     static associate(models) {
-      // define association here
+      // User.hasMany(Likes);
+      // User.hasMany(Post);
+      // User.hasMany(Comment);
     }
   }
   User.init({
@@ -20,5 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+  console.log("✅User")
   return User;
 };

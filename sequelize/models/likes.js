@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      // Likes.belongsTo(User);
+      // Likes.belongsTo(Post);
+      // Likes.belongsTo(Comment);
     }
   }
   Likes.init({
@@ -20,5 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Likes',
   });
+  console.log("✅Likes");
   return Likes;
 };

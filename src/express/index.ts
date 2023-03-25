@@ -14,13 +14,16 @@ const PORT = 8080
 app.use(express.json()); // middleware to Pars data and get Body
 
 async function init(){
-    await test();
+    if( await test() ){
+        console.log(`Starting Sequelize + Express example on port ${PORT}...`);
+        app.listen(PORT, () => {
+            console.log(); console.log(`✅ EXPRESS SERVER STARTED ON 🔗 http://localhost:${PORT} 🔗`)
+        })
+    }else{
+        console.log("SERVER FAILURE ❌❌❌")
+    }
 
-    console.log(`Starting Sequelize + Express example on port ${PORT}...`);
 
-    app.listen(PORT, () => {
-        console.log(); console.log(`✅ EXPRESS SERVER STARTED ON 🔗 http://localhost:${PORT} 🔗`)
-    })
 }
 
 init();
