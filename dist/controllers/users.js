@@ -27,7 +27,7 @@ const deleteUsers = async (req, res) => {
                 console.log(data);
                 await test_1.User.destroy({
                     where: data
-                });
+                }, { transaction: t });
             }
         });
         console.log("✅✅✅ Users Deleted Succesfully");
