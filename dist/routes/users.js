@@ -7,6 +7,6 @@ const express_1 = __importDefault(require("express"));
 const router = (0, express_1.default)();
 const users_1 = require("../controllers/users");
 router.post('/addUser', users_1.addUsers);
-router.post('/deleteUser', users_1.deleteUsers);
+router.delete('/deleteUser', users_1.deleteUsers);
 exports.default = router;
 //# sourceMappingURL=users.js.map

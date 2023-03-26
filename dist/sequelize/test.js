@@ -1,5 +1,4 @@
 "use strict";
-// OLD FILES // DEPRECATED WAY OF DOING // NEW WAY WITH MIGRATIONS
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -8,7 +7,6 @@ exports.sequelize = exports.Comment = exports.Post = exports.Likes = exports.Use
 // import sequelize from './index';
 const index_1 = __importDefault(require("../../sequelize/models/index"));
 const associate_1 = __importDefault(require("./associate"));
-const drop_1 = __importDefault(require("./drop"));
 const User = index_1.default.User;
 exports.User = User;
 const Likes = index_1.default.Likes;
@@ -24,7 +22,7 @@ const test = async () => {
         // await sequelize.authenticate();
         await (0, associate_1.default)(User, Likes, Post, Comment);
         await index_1.default.sequelize.sync();
-        await (0, drop_1.default)(User, Likes, Post, Comment);
+        // await drop(User, Likes, Post, Comment);
         console.log('✅ Connection has been established successfully.');
     }
     catch (error) {

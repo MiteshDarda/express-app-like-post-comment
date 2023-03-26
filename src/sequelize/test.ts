@@ -1,4 +1,3 @@
-// OLD FILES // DEPRECATED WAY OF DOING // NEW WAY WITH MIGRATIONS
 
 // import sequelize from './index';
 import db from "../../sequelize/models/index";

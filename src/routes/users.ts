@@ -4,6 +4,6 @@ const router = express();
 import {addUsers, deleteUsers} from "../controllers/users"
 
 router.post('/addUser', addUsers);
-router.post('/deleteUser', deleteUsers);
+router.delete('/deleteUser', deleteUsers);
 
 export default router;
