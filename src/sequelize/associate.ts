@@ -5,11 +5,11 @@
 
 const associate = async(User, Likes, Post, Comment) => {
 
-    await Comment.belongsTo(User, { onDelete: 'cascade', hooks: true });
-    await User.hasMany(Comment, { onDelete: 'cascade', hooks: true });
-    
     await Post.belongsTo(User, { onDelete: 'cascade', hooks: true });
     await User.hasMany(Post, { onDelete: 'cascade', hooks: true });
+    
+    await Comment.belongsTo(User, { onDelete: 'cascade', hooks: true });
+    await User.hasMany(Comment, { onDelete: 'cascade', hooks: true });
     
     await Likes.belongsTo(User, { onDelete: 'cascade', hooks: true });
     await User.hasMany(Likes, { onDelete: 'cascade', hooks: true });

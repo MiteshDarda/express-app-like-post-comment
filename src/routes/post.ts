@@ -3,7 +3,7 @@ const router = express();
 
 import { addPost, deletePost } from "../controllers/post";
 
-router.post('/addPost', addPost);
+router.post('/addPost/:userId', addPost);
 router.post('/deletePost', deletePost);
 
 
