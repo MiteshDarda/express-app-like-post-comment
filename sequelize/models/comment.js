@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Comment.init({
-    comment: DataTypes.STRING,
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     likes: DataTypes.INTEGER,
     dislikes: DataTypes.INTEGER
   }, {
