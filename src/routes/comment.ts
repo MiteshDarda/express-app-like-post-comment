@@ -4,7 +4,7 @@ const router = express();
 import { addComment, deleteComment } from "../controllers/comment";
 
 router.post('/addComment/:commentId&:postId&:userId', addComment);
-router.post('/deleteComment', deleteComment);
+router.delete('/deleteComment/:id', deleteComment);
 
 
 export default router;

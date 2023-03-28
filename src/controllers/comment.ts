@@ -36,7 +36,22 @@ const addComment = async(req, res) => {
 }
 
 const deleteComment = async(req, res) => {
-    res.send("Deliting");
+    const id  = req.params.id;
+    try{
+        await sequelize.transaction(async t => {
+            await Comment.destroy({where: {id: id}}, {transaction: t})
+        })
+        console.log("✅✅✅ Comment Deleted Succesfully");
+        res
+            .status(202)
+            .send("✅✅✅ Comment Deleted Succesfully");
+    }
+    catch(error){
+        console.log("WASN'T Able to DeleteComment ❌❌❌", error);
+        res
+            .status(400)
+            .send("WASN'T Able to DeleteComment ❌❌❌");
+    }
 }
 
 
