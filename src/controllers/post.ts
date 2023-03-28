@@ -27,10 +27,10 @@ const addPost = async(req, res) => {
 }
 
 const deletePost = async(req, res) => {
-    console.log(req.body);
+    const id  = req.params.id;
     try{
         await sequelize.transaction(async t => {
-            await Post.destroy({where: req.body}, {transaction: t})
+            await Post.destroy({where: {id: id}}, {transaction: t})
         })
         console.log("✅✅✅ Post Deleted Succesfully");
         res
