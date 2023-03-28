@@ -5,19 +5,19 @@ const addComment = async(req, res) => {
     const postId = req.params.postId;
     const userId = req.params.userId;
     const commentOnComment = req.params.commentId === 'null' ? false : true; // or commentOnPost
-    const comment = commentId !== 'null' ? await Comment.findByPk(commentId) : null;
-    const post = postId !== 'null' ? await Post.findByPk(postId) : null;
-    const user = await User.findByPk(userId);
-
-    if(!comment && !post){
-        res
-            .status(412)
-            .send("Invalid UserId || User Dosen't Exist");
-        return;
-    }
-
+    
     try{
         await sequelize.transaction(async t => {
+            const comment = commentId !== 'null' ? await Comment.findByPk(commentId) : null;
+            const post = postId !== 'null' ? await Post.findByPk(postId) : null;
+            const user = await User.findByPk(userId);
+        
+            if(!comment && !post){
+                res
+                    .status(412)
+                    .send("Invalid UserId || User Dosen't Exist");
+                return;
+            }
             const newComment = await user.createComment(req.body);
             if(commentOnComment) await newComment.setComment(comment);
             else await newComment.setPost(post); // or commentOnPost
