@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Likes.init({
-    likeOn: DataTypes.ENUM('p', 'c'),
-    likeType: DataTypes.ENUM('l', 'd')
+    actionOn: DataTypes.ENUM('p', 'c'),
+    actionType: DataTypes.ENUM('l', 'd')
   }, {
     sequelize,
     modelName: 'Likes',
