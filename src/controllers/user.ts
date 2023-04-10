@@ -3,7 +3,7 @@ import { User, sequelize } from "../sequelize/test";
 const addUsers = async(req, res) => {
     try{
         await sequelize.transaction( async (t) => {
-            await User.bulkCreate(req.body, {transaction: t});
+            await User.create(req.body);
         })
         console.log("✅✅✅ Users Added Succesfully")
         res
@@ -21,12 +21,9 @@ const addUsers = async(req, res) => {
 const deleteUsers = async(req, res) => {
     try{
         await sequelize.transaction(async t => {
-            for await(const data of req.body){
-                console.log(data);
                 await User.destroy({
-                    where: data
+                    where: req.params
                 }, {transaction: t});
-            }
         })
         console.log("✅✅✅ Users Deleted Succesfully");
         res

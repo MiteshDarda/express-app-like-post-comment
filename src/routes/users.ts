@@ -1,9 +1,9 @@
 import express  from "express"; 
 const router = express();
 
-import {addUsers, deleteUsers} from "../controllers/users"
+import {addUsers, deleteUsers} from "../controllers/user"
 
-router.post('/addUser', addUsers);
-router.delete('/deleteUser', deleteUsers);
+router.post('/user', addUsers);
+router.delete('/user/:id', deleteUsers);
 
 export default router;
