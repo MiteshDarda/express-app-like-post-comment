@@ -10,7 +10,7 @@ const addUsers = async(req, res) => {
         return;
     }
 
-    const {email} = req.body;
+    const email = req.body.email.toLowerCase();
 
     const userPresent = await userAlreadyExists(User, email, sequelize);
     if(userPresent){

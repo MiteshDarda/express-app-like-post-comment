@@ -4,7 +4,6 @@ const userAlreadyExists = async (User, email, sequelize) => {
     try {
         await sequelize.transaction( async (t) => {
             ifUser = await User.findOne({where: {email: email}}, {transaction: t});
-            console.log(ifUser);
         })
         
     }
@@ -14,10 +13,9 @@ const userAlreadyExists = async (User, email, sequelize) => {
     }
     await console.log(ifUser);
     if (ifUser === null){
-        console.log("In");
         return false;
     }
-    return true;
+    return ifUser;
 }
 
 export default userAlreadyExists;
