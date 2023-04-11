@@ -1,7 +1,7 @@
 import {User, Post, sequelize} from "../sequelize/test"
 
 const addPost = async(req, res) => {
-    const userId = req.params.userId
+    const userId = req.userId
     try{
         const user = await User.findByPk(userId);
         if (user === null){
@@ -27,7 +27,7 @@ const addPost = async(req, res) => {
 }
 
 const deletePost = async(req, res) => {
-    const id  = req.params.id;
+    const id  = req.userId;
     try{
         await sequelize.transaction(async t => {
             await Post.destroy({where: {id: id}}, {transaction: t})

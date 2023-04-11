@@ -2,9 +2,10 @@ import express  from "express";
 const router = express();
 
 import { addPost, deletePost } from "../controllers/post";
+import auth from "../auth/auth"
 
-router.post('/addPost/:userId', addPost);
-router.delete('/deletePost/:id', deletePost);
+router.post('/post', auth, addPost);
+router.delete('/post/:id', auth, deletePost);
 
 
 export default router;
