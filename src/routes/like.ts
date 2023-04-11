@@ -1,10 +1,10 @@
 import express  from "express"; 
 const router = express();
 
-import { addLikeDislike, updateLikeDislike } from "../controllers/like";
+import { addLikeDislike} from "../controllers/like";
+import auth from "../auth/auth";
 
-router.post('/addLikeDislike', addLikeDislike);
-router.post('/updateLikeDislike', updateLikeDislike);
+router.post('/like', auth, addLikeDislike);
 
 
 export default router;

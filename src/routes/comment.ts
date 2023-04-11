@@ -5,7 +5,7 @@ import { addComment, deleteComment } from "../controllers/comment";
 import auth from "../auth/auth";
 
 router.post('/comment/:postId&:commentId', auth, addComment);
-router.delete('/comment/:id', deleteComment);
+router.delete('/comment/:id', auth, deleteComment);
 
 
 export default router;

@@ -21,7 +21,8 @@ const removeDislike = async(parent) => {
 }
 
 const addLikeDislike = async(req, res) => {
-    const {actionOn, actionType, userId, commentId, postId} = req.body;
+    const {actionOn, actionType, commentId, postId} = req.body;
+    const userId = req.userId;
     if(actionOn !== 'p' && actionOn !== 'c'){
         res
             .status(412)
@@ -115,9 +116,6 @@ const addLikeDislike = async(req, res) => {
     }
 }
 
-const updateLikeDislike = async(req, res) => {
-    res.send("Updating");
-}
 
 
-export {addLikeDislike, updateLikeDislike};
+export {addLikeDislike};
