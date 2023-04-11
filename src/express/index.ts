@@ -38,43 +38,6 @@ app.get('/', (req, res) => {
 	`);
 });
 
-// testing middleware below
-
-app.post('/signup', (req, res) => {
-    const {email, password} = req.body;
-	console.log(email, password);
-    const token = jwt.sign(
-        {email: email},
-        "secret",
-        { expiresIn: "1h" }
-        );
-    console.log(token);
-    res.json({
-        sucess: true,
-        data : token
-    })
-});
-
-const authFun = (req, res, next) => {
-    const token = req.headers?.authorization.split(' ')[1];
-    if(!token){
-        res.sendStatus(400);
-        return;
-    }
-    jwt.verify(token, "secret" as string, (err: any, email: any) => {
-        if (err) return res.sendStatus(403)
-        req.email = email;
-        next();
-      })
-}
-
-app.get('/getInfo', authFun, (req, res) => {
-    console.log(req.email);
-    res.send("GOOD");
-})
-
-// testing data above
-
 // Routed API Requests
 app.use('/v1', userRoutes);
 app.use('/v1', commentRoutes);

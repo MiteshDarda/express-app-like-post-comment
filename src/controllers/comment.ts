@@ -1,9 +1,10 @@
 import {User, Post, Comment, sequelize} from "../sequelize/test"
 
 const addComment = async(req, res) => {
+    console.log(req.params);
     const commentId = req.params.commentId;
     const postId = req.params.postId;
-    const userId = req.params.userId;
+    const userId = req.userId;
     const commentOnComment = req.params.commentId === 'null' ? false : true; // or commentOnPost
     
     try{

@@ -27,7 +27,7 @@ const addPost = async(req, res) => {
 }
 
 const deletePost = async(req, res) => {
-    const id  = req.userId;
+    const id  = req.params.id;
     try{
         await sequelize.transaction(async t => {
             await Post.destroy({where: {id: id}}, {transaction: t})

@@ -8,7 +8,6 @@ const auth = async(req, res, next) => {
     }
     jwt.verify(token, "SECRET" as string, (err: any, info: any) => {
         if (err) return res.sendStatus(403)
-        console.log(info);
         req.email = info.email;
         req.userId = info.user_id;
         next();

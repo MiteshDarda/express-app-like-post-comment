@@ -2,9 +2,10 @@ import express  from "express";
 const router = express();
 
 import { addComment, deleteComment } from "../controllers/comment";
+import auth from "../auth/auth";
 
-router.post('/addComment/:commentId&:postId&:userId', addComment);
-router.delete('/deleteComment/:id', deleteComment);
+router.post('/comment/:postId&:commentId', auth, addComment);
+router.delete('/comment/:id', deleteComment);
 
 
 export default router;
