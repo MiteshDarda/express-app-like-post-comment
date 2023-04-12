@@ -1,4 +1,4 @@
-import {User, Post,  sequelize} from "../../sequelize/test"
+import {User, Post, sequelize} from "../../sequelize/test"
 
 
 const onPost = async(req, res) => {
@@ -6,13 +6,13 @@ const onPost = async(req, res) => {
     const postId = req.params.postId;
     try{
         await sequelize.transaction(async t => {
-            const post = postId !== 'null' ? await Post.findByPk(postId) : null;
+            const post = await Post.findByPk(postId);
             const user = await User.findByPk(userId);
         
             if(!post){
                 res
                     .status(412)
-                    .send("Invalid UserId || User Dosen't Exist");
+                    .send("Invalid Post || Post Dosen't Exist");
                 return;
             }
             const newComment = await user.createComment(req.body);
