@@ -9,13 +9,11 @@ const remove = async(req, res) => {
                     where: {id: req.userId}
                 }, {transaction: t});
         })
-        console.log("✅✅✅ Users Deleted Succesfully");
         res
             .status(202)
             .send("✅✅✅ Users Deleted Succesfully");
     }
     catch(error){
-        console.log("WASN'T Able to DeleteUsers ❌❌❌", error);
         res
             .status(400)
             .send("WASN'T Able to DeleteUsers ❌❌❌");
