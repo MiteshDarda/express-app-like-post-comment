@@ -1,7 +1,6 @@
 import {User, Post, Comment, sequelize} from "../sequelize/test"
 
 const addComment = async(req, res) => {
-    console.log(req.params);
     const commentId = req.params.commentId;
     const postId = req.params.postId;
     const userId = req.userId;

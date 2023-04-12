@@ -1,4 +1,4 @@
-import { User, sequelize } from "../sequelize/test";
+import { User, sequelize } from "../../sequelize/test";
 const jwt = require("jsonwebtoken");
 
 const login = async(req, res) => {
@@ -12,8 +12,8 @@ const login = async(req, res) => {
             console.log("YES");
             if(user == null){
                 res
-                .status(400)
-                .send("Unable to login");
+                .status(404)
+                .send("Invalid Email / Password");
                 return;
             }
             const token = jwt.sign(
@@ -30,8 +30,8 @@ const login = async(req, res) => {
     }
     catch(error){
         res
-            .status(400)
-            .send("Cant Login");
+            .status(500)
+            .send("Internal Server Error");
         return;
     }
 }

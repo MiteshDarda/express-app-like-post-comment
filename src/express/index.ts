@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 });
 
 // Routed API Requests
-app.use('/v1', userRoutes);
+app.use('', userRoutes);
 app.use('/v1', commentRoutes);
 app.use('/v1', likeRoutes);
 app.use('/v1', postRoutes);
