@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 app.use('/user', userRoutes);
 app.use('/user', postRoutes);
 app.use('/user/post', commentRoutes);
-app.use('/v1', likeRoutes);
+app.use('/user/post', likeRoutes);
 
 
 

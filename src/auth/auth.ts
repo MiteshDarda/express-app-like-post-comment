@@ -10,6 +10,11 @@ const auth = async(req, res, next) => {
         if (err) return res.sendStatus(403);
         req.email = info.email;
         req.userId = info.user_id;
+        if(!info.email || !info.user_id){
+            res
+                .status(401)
+                .send("Unauthorized: User Not Recognized")
+        }
         next();
       })
 }
